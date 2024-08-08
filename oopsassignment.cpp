@@ -1,65 +1,50 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-// Parent class
-class CS {
-public:
-    string name;
-    vector<string> coreSubjects;
-    vector<int> marks;
+class EMPLOYEE
+{
+private:
+    int empNumber;
+    string empName;
+    float basic;
+    float DA;
+    float IT;
+    float netSalary;
 
-    CS(const string& name) : name(name) {
-        coreSubjects = {"Data Structures", "Algorithms", "Computer Networks", "Operating Systems", "Database Systems"};
-        marks.resize(coreSubjects.size(), 0); 
+    void calculateNetSalary()
+    {
+        netSalary = basic + DA - IT;
     }
 
-    void inputMarks() {
-        cout << "Enter marks for " << name << " specialization:" << endl;
-        for (size_t i = 0; i < coreSubjects.size(); ++i) {
-            cout << coreSubjects[i] << ": ";
-            cin >> marks[i];
-        }
+public:
+    void setDetails(int number, string name, float basicSalary, float da, float it)
+    {
+        empNumber = number;
+        empName = name;
+        basic = basicSalary;
+        DA = da;
+        IT = it;
+        calculateNetSalary();
     }
-
-    void displayMarks() {
-        cout << "Marks for " << name << " specialization:" << endl;
-        for (size_t i = 0; i < coreSubjects.size(); ++i) {
-            cout << coreSubjects[i] << ": " << marks[i] << endl;
-        }
-    }
-
-    void displayCoreSubjects() {
-        cout << "Core subjects for " << name << ":" << endl;
-        for (const auto& subject : coreSubjects) {
-            cout << subject << endl;
-        }
+    void printDetails()
+    {
+        cout << "Employee Number: " << empNumber << endl;
+        cout << "Employee Name: " << empName << endl;
+        cout << "Basic Salary: " << basic << endl;
+        cout << "Dearness Allowance (DA): " << DA << endl;
+        cout << "Income Tax (IT): " << IT << endl;
+        cout << "Net Salary: " << netSalary << endl;
     }
 };
 
-class AIML : public CS {
-public:
-    AIML() : CS("AIML") {}
-};
+int main()
+{
+    EMPLOYEE emp;
 
-class CyberSecurity : public CS {
-public:
-    CyberSecurity() : CS("CyberSecurity") {}
-};
+    emp.setDetails(10586, "RADHEY", 64640, 14563, 12563);
 
-class DataScience : public CS {
-public:
-    DataScience() : CS("DataScience") {}
-};
+    emp.printDetails();
 
-// Child class for SoftwareEngineering specialization
-class SoftwareEngineering : public CS {
-public:
-    SoftwareEngineering() : CS("SoftwareEngineering") {}
-};
-
-// Child class for Bioinformatics specialization
-class Bioinformatics : public CS {
-public:
+    return 0;
+}
