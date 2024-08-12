@@ -1,11 +1,3 @@
-Q6.
-Write a function template that will sort an array of implicit
-types like int, float, char etc. it can also sort user-defined
-objects like strings & date. The necessary classes contains
-overloading of operators.
-
-CODE:-
-
 #include <bits/stdc++.h>
 
 using namespace std;
