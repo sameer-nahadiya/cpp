@@ -18,6 +18,36 @@ int stringlength(char name[])
     }
     return count;
 }
+char maxoccurencechar(string s)
+{
+    int arr[26] = {0};
+    for (int i = 0; i < s.length(); i++)
+    {
+        char ch = s[i];
+        int number = 0;
+        if (ch >= 'a' && ch <= 'z')
+        {
+            number = ch - 'a';
+        }
+        else
+        {
+            number = ch - 'A';
+        }
+        arr[number]++;
+    }
+    int maxi = -1;
+    int ans = 0;
+    for (int i = 0; i < 26; i++)
+    {
+        if (maxi < arr[i])
+        {
+            ans = i;
+            maxi = arr[i];
+        }
+    }
+    char finalans = 'a' + ans;
+    return finalans;
+}
 
 int main()
 {
@@ -31,5 +61,11 @@ int main()
     reverse(name, k);
     cout << "your name is:";
     cout << name << endl;
+    cout << "maximum occurence char is:" << maxoccurencechar(name) << endl;
+
     return 0;
 }
+// string ko compare karne ke liye 
+// use karte hai strcmp(s1,s2)
+// string copy karne ke liye 
+// use strcpy(dest,source)
