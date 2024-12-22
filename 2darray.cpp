@@ -14,7 +14,7 @@ bool ispresent(int arr[][4], int target, int row, int col)
         }
     }
     return 0;
-}
+} 
 
 void printsum(int arr[][4], int row, int col)
 {
