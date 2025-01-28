@@ -17,5 +17,5 @@ int main()
     cin >> n;
     int ans = power(n);
 
-    cout << ans << endl;
+    cout << ans << endl; 
 }
