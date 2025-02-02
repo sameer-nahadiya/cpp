@@ -1,4 +1,4 @@
-if (n == 0)
+if (size == 1)
     // {
-    //     return 0;
+    //     return arr[0];
     // }
