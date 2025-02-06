@@ -28,7 +28,7 @@ void merge(int *arr, int s, int e)
     while (index1 < len1 && index2 < len2)
     {
         if (first[index1] < second[index2])
-        {
+        {   
             arr[mainarrayindex++] = first[index1++];
         }
         else
@@ -44,6 +44,7 @@ void merge(int *arr, int s, int e)
     {
         arr[mainarrayindex++] = second[index2++];
     }
+    //dynamic memory allocate karne ke baad unhe delete jarur kare warna error de degi
     delete[]first;
     delete []second;
 }
